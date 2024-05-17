@@ -2,7 +2,7 @@ import 'package:gsdatabase/gsdatabase.dart';
 
 void main(List<String> arguments) async {
   final db = GsDatabase.info(
-    loadJson: 'data.json',
+    loadJson: 'data/data.json',
   );
   await db.load();
 
@@ -20,11 +20,9 @@ void main(List<String> arguments) async {
     print(weap.ascAtkValues);
   }
 
-  /*
   final version = db.of<GsVersion>().items.firstOrNull;
   if (version != null) {
     print(version.releaseDate);
     print(version.toMap()['release_date']);
   }
-  */
 }
