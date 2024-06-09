@@ -1,5 +1,6 @@
 // --- ENUMS ---
 export 'enums/ge_achievement_type.dart';
+export 'enums/ge_arkhe_type.dart';
 export 'enums/ge_artifact_piece_type.dart';
 export 'enums/ge_banner_type.dart';
 export 'enums/ge_char_constellation_type.dart';
