@@ -1,4 +1,5 @@
 import 'package:gsdatabase/gsdatabase.dart';
+import 'package:gsdatabase/src/enums/ge_arkhe_type.dart';
 import 'package:gsdatabase/src/models/gs_model.dart';
 
 part 'gs_character.g.dart';
@@ -17,6 +18,8 @@ abstract class _GsCharacter extends GsModel<GsCharacter> {
   int get rarity;
   @BuilderWire('region')
   GeRegionType get region;
+  @BuilderWire('arkhe')
+  GeArkheType get arkhe;
   @BuilderWire('weapon')
   GeWeaponType get weapon;
   @BuilderWire('element')

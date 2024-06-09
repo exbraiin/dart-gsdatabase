@@ -1,6 +1,7 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeElementType implements GeEnum {
+  none('none'),
   anemo('anemo'),
   geo('geo'),
   electro('electro'),

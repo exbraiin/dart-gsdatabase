@@ -1,6 +1,7 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeItemSourceType implements GeEnum {
+  none('none'),
   shop('shop'),
   event('event'),
   fishing('fishing'),

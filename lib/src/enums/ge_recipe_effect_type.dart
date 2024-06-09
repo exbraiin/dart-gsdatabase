@@ -1,6 +1,7 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeRecipeEffectType implements GeEnum {
+  none('none'),
   recoveryHPAll('recoveryHPAll'),
   recoveryHP('recoveryHP'),
   revive('revive'),

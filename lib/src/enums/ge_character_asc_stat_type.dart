@@ -1,6 +1,7 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeCharacterAscStatType implements GeEnum {
+  none('none'),
   anemoDmgBonus('anemoDmgBonus'),
   geoDmgBonus('geoDmgBonus'),
   electroDmgBonus('electroDmgBonus'),

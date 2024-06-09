@@ -1,6 +1,7 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeNamecardType implements GeEnum {
+  none('none'),
   achievement('achievement'),
   battlepass('battlepass'),
   character('character'),

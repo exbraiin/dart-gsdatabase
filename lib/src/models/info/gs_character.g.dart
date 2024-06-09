@@ -22,6 +22,8 @@ class GsCharacter extends _GsCharacter {
   @override
   final GeRegionType region;
   @override
+  final GeArkheType arkhe;
+  @override
   final GeWeaponType weapon;
   @override
   final GeElementType element;
@@ -87,6 +89,7 @@ class GsCharacter extends _GsCharacter {
     required this.title,
     required this.rarity,
     required this.region,
+    required this.arkhe,
     required this.weapon,
     required this.element,
     required this.gender,
@@ -126,6 +129,7 @@ class GsCharacter extends _GsCharacter {
         title = m['title'] as String? ?? '',
         rarity = m['rarity'] as int? ?? 0,
         region = GeRegionType.values.fromId(m['region']),
+        arkhe = GeArkheType.values.fromId(m['arkhe']),
         weapon = GeWeaponType.values.fromId(m['weapon']),
         element = GeElementType.values.fromId(m['element']),
         gender = GeGenderType.values.fromId(m['gender']),
@@ -170,6 +174,7 @@ class GsCharacter extends _GsCharacter {
     String? title,
     int? rarity,
     GeRegionType? region,
+    GeArkheType? arkhe,
     GeWeaponType? weapon,
     GeElementType? element,
     GeGenderType? gender,
@@ -207,6 +212,7 @@ class GsCharacter extends _GsCharacter {
       title: title ?? this.title,
       rarity: rarity ?? this.rarity,
       region: region ?? this.region,
+      arkhe: arkhe ?? this.arkhe,
       weapon: weapon ?? this.weapon,
       element: element ?? this.element,
       gender: gender ?? this.gender,
@@ -249,6 +255,7 @@ class GsCharacter extends _GsCharacter {
       'title': title,
       'rarity': rarity,
       'region': region.id,
+      'arkhe': arkhe.id,
       'weapon': weapon.id,
       'element': element.id,
       'gender': gender.id,
