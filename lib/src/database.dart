@@ -6,10 +6,10 @@ import 'package:gsdatabase/src/exporter.dart';
 import 'package:rxdart/rxdart.dart';
 
 List<Items> get _infoCollections {
+  const kCategories = 'achievement_categories';
   return [
     Items<GsAchievement>('achievements', GsAchievement.fromJson),
-    Items<GsAchievementGroup>(
-        'achievement_categories', GsAchievementGroup.fromJson),
+    Items<GsAchievementGroup>(kCategories, GsAchievementGroup.fromJson),
     Items<GsArtifact>('artifacts', GsArtifact.fromJson),
     Items<GsBanner>('banners', GsBanner.fromJson),
     Items<GsBattlepass>('battlepass', GsBattlepass.fromJson),
@@ -48,6 +48,7 @@ List<Items> get _saveCollections {
 
 final class GsDatabase {
   final String loadJson;
+  final bool encoded;
   final bool allowWrite;
   final List<Items> collections;
   final JsonMap Function(JsonMap map)? _preProcess;
@@ -56,12 +57,14 @@ final class GsDatabase {
 
   GsDatabase.info({
     required this.loadJson,
+    this.encoded = false,
     this.allowWrite = false,
   })  : _preProcess = null,
         collections = _infoCollections;
 
   GsDatabase.save({
     required this.loadJson,
+    this.encoded = false,
     this.allowWrite = false,
   })  : _preProcess = null,
         collections = _saveCollections;
@@ -71,10 +74,17 @@ final class GsDatabase {
 
   Future<void> load() async {
     final file = File(loadJson);
-    final JsonMap map = await file.exists()
-        ? await file.readAsString().then((value) => jsonDecode(value))
-        : {};
-    await Future.value(map)
+    JsonMap jsonMap = {};
+    if (await file.exists()) {
+      if (encoded) {
+        final bytes = await file.readAsBytes();
+        jsonMap = _decodeJson(bytes);
+      } else {
+        final string = await file.readAsString();
+        jsonMap = jsonDecode(string);
+      }
+    }
+    await Future.value(jsonMap)
         .then((value) => _preProcess?.call(value) ?? value)
         .then((value) => collections.map((e) => e._load(value, this)))
         .then((value) => Future.wait(value));
@@ -82,9 +92,29 @@ final class GsDatabase {
 
   Future<void> save() async {
     if (!allowWrite) return;
+    final file = File(loadJson);
     final map = <String, dynamic>{};
     await Future.wait(collections.map((e) => e._save(map)));
-    await File(loadJson).writeAsString(jsonEncode(map));
+
+    if (encoded) {
+      final bytes = _encodeJson(map);
+      await file.writeAsBytes(bytes);
+    } else {
+      final string = jsonEncode(map);
+      await file.writeAsString(string);
+    }
+  }
+
+  List<int> _encodeJson(JsonMap map) {
+    final eJson = jsonEncode(map);
+    final eUtf8 = utf8.encode(eJson);
+    return gzip.encode(eUtf8);
+  }
+
+  JsonMap _decodeJson(List<int> bytes) {
+    final eUtf8 = gzip.decode(bytes);
+    final eJson = utf8.decode(eUtf8);
+    return jsonDecode(eJson) as JsonMap;
   }
 }
 
