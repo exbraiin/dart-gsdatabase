@@ -2,6 +2,7 @@ import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeMaterialType implements GeEnum {
   none('none'),
+  oculi('oculi'),
   ascensionGems('ascension_gems'),
   forging('forging'),
   furnishing('furnishing'),

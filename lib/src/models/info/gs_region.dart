@@ -16,6 +16,8 @@ abstract class _GsRegion extends GsModel<GsRegion> {
   String get archon;
   @BuilderWire('ideal')
   String get ideal;
+  @BuilderWire('oculi')
+  String get oculi;
   @BuilderWire('element')
   GeElementType get element;
   @BuilderWire('reputation')

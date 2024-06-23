@@ -1,5 +1,4 @@
 import 'package:gsdatabase/gsdatabase.dart';
-import 'package:gsdatabase/src/enums/ge_arkhe_type.dart';
 import 'package:gsdatabase/src/models/gs_model.dart';
 
 part 'gs_character.g.dart';
