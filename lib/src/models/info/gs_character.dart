@@ -47,6 +47,8 @@ abstract class _GsCharacter extends GsModel<GsCharacter> {
   String get sideImage;
   @BuilderWire('full_image')
   String get fullImage;
+  @BuilderWire('website_image')
+  String get websiteImage;
 
   @BuilderWire('constellation_image')
   String get constellationImage;

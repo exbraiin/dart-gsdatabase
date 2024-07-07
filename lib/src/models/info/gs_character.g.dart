@@ -52,6 +52,8 @@ class GsCharacter extends _GsCharacter {
   @override
   final String fullImage;
   @override
+  final String websiteImage;
+  @override
   final String constellationImage;
   @override
   final String gemMaterial;
@@ -104,6 +106,7 @@ class GsCharacter extends _GsCharacter {
     required this.image,
     required this.sideImage,
     required this.fullImage,
+    required this.websiteImage,
     required this.constellationImage,
     required this.gemMaterial,
     required this.bossMaterial,
@@ -145,6 +148,7 @@ class GsCharacter extends _GsCharacter {
         image = m['image'] as String? ?? '',
         sideImage = m['side_image'] as String? ?? '',
         fullImage = m['full_image'] as String? ?? '',
+        websiteImage = m['website_image'] as String? ?? '',
         constellationImage = m['constellation_image'] as String? ?? '',
         gemMaterial = m['mat_gem'] as String? ?? '',
         bossMaterial = m['mat_boss'] as String? ?? '',
@@ -189,6 +193,7 @@ class GsCharacter extends _GsCharacter {
     String? image,
     String? sideImage,
     String? fullImage,
+    String? websiteImage,
     String? constellationImage,
     String? gemMaterial,
     String? bossMaterial,
@@ -227,6 +232,7 @@ class GsCharacter extends _GsCharacter {
       image: image ?? this.image,
       sideImage: sideImage ?? this.sideImage,
       fullImage: fullImage ?? this.fullImage,
+      websiteImage: websiteImage ?? this.websiteImage,
       constellationImage: constellationImage ?? this.constellationImage,
       gemMaterial: gemMaterial ?? this.gemMaterial,
       bossMaterial: bossMaterial ?? this.bossMaterial,
@@ -270,6 +276,7 @@ class GsCharacter extends _GsCharacter {
       'image': image,
       'side_image': sideImage,
       'full_image': fullImage,
+      'website_image': websiteImage,
       'constellation_image': constellationImage,
       'mat_gem': gemMaterial,
       'mat_boss': bossMaterial,
