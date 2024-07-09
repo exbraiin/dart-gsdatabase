@@ -1,10 +1,12 @@
 import 'package:gsdatabase/gsdatabase.dart';
 
 void main(List<String> arguments) async {
-  final db = GsDatabase.info(
-    loadJson: 'data/data.json',
-  );
-  await db.load();
+  final db = GsDatabase.info();
+  await db.load(loadJson: 'data/gsdata', encoded: true);
+
+  final collection = db.of<GsCharacter>();
+  final item = collection.items.first;
+  collection.setItem(item);
 
   final char = db.of<GsCharacter>().items.firstOrNull;
   if (char != null) {

@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:gsdatabase/src/exporter.dart';
-import 'package:rxdart/rxdart.dart';
 
-List<Items> get _infoCollections {
+Iterable<Items> get _infoCollections {
   const kCategories = 'achievement_categories';
   return [
     Items<GsAchievement>('achievements', GsAchievement.fromJson),
@@ -31,7 +30,7 @@ List<Items> get _infoCollections {
   ];
 }
 
-List<Items> get _saveCollections {
+Iterable<Items> get _saveCollections {
   return [
     Items<GiAchievement>('achievements', GiAchievement.fromJson),
     Items<GiWish>('wishes', GiWish.fromJson),
@@ -47,24 +46,18 @@ List<Items> get _saveCollections {
 }
 
 final class GsDatabase {
-  final String loadJson;
-  final bool encoded;
   final bool allowWrite;
-  final List<Items> collections;
+  final Iterable<Items> collections;
   final JsonMap Function(JsonMap map)? _preProcess;
-  final _notifier = PublishSubject<void>();
-  Stream<void> get didUpdate => _notifier;
+  final _notifier = StreamController<void>.broadcast();
+  Stream<void> get didUpdate => _notifier.stream;
 
   GsDatabase.info({
-    required this.loadJson,
-    this.encoded = false,
     this.allowWrite = false,
   })  : _preProcess = null,
         collections = _infoCollections;
 
   GsDatabase.save({
-    required this.loadJson,
-    this.encoded = false,
     this.allowWrite = false,
   })  : _preProcess = null,
         collections = _saveCollections;
@@ -72,7 +65,7 @@ final class GsDatabase {
   Items<T> of<T extends GsModel<T>>() =>
       collections.firstWhere((e) => e is Items<T>) as Items<T>;
 
-  Future<void> load() async {
+  Future<void> load({required String loadJson, bool encoded = false}) async {
     final file = File(loadJson);
     JsonMap jsonMap = {};
     if (await file.exists()) {
@@ -90,7 +83,7 @@ final class GsDatabase {
         .then((value) => Future.wait(value));
   }
 
-  Future<void> save() async {
+  Future<void> save({required String loadJson, bool encoded = false}) async {
     if (!allowWrite) return;
     final file = File(loadJson);
     final map = <String, dynamic>{};
