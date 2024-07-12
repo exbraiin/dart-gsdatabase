@@ -46,51 +46,40 @@ Iterable<Items> get _saveCollections {
 }
 
 final class GsDatabase {
-  final bool allowWrite;
   final Iterable<Items> collections;
-  final JsonMap Function(JsonMap map)? _preProcess;
   final _notifier = StreamController<void>.broadcast();
   Stream<void> get didUpdate => _notifier.stream;
 
-  GsDatabase.info({
-    this.allowWrite = false,
-  })  : _preProcess = null,
-        collections = _infoCollections;
-
-  GsDatabase.save({
-    this.allowWrite = false,
-  })  : _preProcess = null,
-        collections = _saveCollections;
+  GsDatabase.info() : collections = _infoCollections;
+  GsDatabase.save() : collections = _saveCollections;
 
   Items<T> of<T extends GsModel<T>>() =>
       collections.firstWhere((e) => e is Items<T>) as Items<T>;
 
-  Future<void> load({required String loadJson, bool encoded = false}) async {
-    final file = File(loadJson);
+  Future<void> load({required String path, bool encoded = false}) async {
+    final file = File(path);
     JsonMap jsonMap = {};
     if (await file.exists()) {
       if (encoded) {
         final bytes = await file.readAsBytes();
-        jsonMap = _decodeJson(bytes);
+        jsonMap = _decodeBytesToJsonMap(bytes);
       } else {
         final string = await file.readAsString();
         jsonMap = jsonDecode(string);
       }
     }
     await Future.value(jsonMap)
-        .then((value) => _preProcess?.call(value) ?? value)
         .then((value) => collections.map((e) => e._load(value, this)))
         .then((value) => Future.wait(value));
   }
 
-  Future<void> save({required String loadJson, bool encoded = false}) async {
-    if (!allowWrite) return;
-    final file = File(loadJson);
+  Future<void> save({required String path, bool encoded = false}) async {
+    final file = File(path);
     final map = <String, dynamic>{};
     await Future.wait(collections.map((e) => e._save(map)));
 
     if (encoded) {
-      final bytes = _encodeJson(map);
+      final bytes = _encodeJsonMapToBytes(map);
       await file.writeAsBytes(bytes);
     } else {
       final string = jsonEncode(map);
@@ -98,13 +87,13 @@ final class GsDatabase {
     }
   }
 
-  List<int> _encodeJson(JsonMap map) {
+  List<int> _encodeJsonMapToBytes(JsonMap map) {
     final eJson = jsonEncode(map);
     final eUtf8 = utf8.encode(eJson);
     return gzip.encode(eUtf8);
   }
 
-  JsonMap _decodeJson(List<int> bytes) {
+  JsonMap _decodeBytesToJsonMap(List<int> bytes) {
     final eUtf8 = gzip.decode(bytes);
     final eJson = utf8.decode(eUtf8);
     return jsonDecode(eJson) as JsonMap;

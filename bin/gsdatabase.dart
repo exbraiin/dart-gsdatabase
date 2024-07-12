@@ -2,7 +2,7 @@ import 'package:gsdatabase/gsdatabase.dart';
 
 void main(List<String> arguments) async {
   final db = GsDatabase.info();
-  await db.load(loadJson: 'data/gsdata', encoded: true);
+  await db.load(path: 'data/gsdata', encoded: true);
 
   final collection = db.of<GsCharacter>();
   final item = collection.items.first;
