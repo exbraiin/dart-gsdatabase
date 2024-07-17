@@ -33,6 +33,7 @@ export 'models/info/gs_character.dart'
     show GsCharacter, GsCharTalent, GsCharConstellation;
 export 'models/info/gs_character_skin.dart' show GsCharacterSkin;
 export 'models/info/gs_enemy.dart' show GsEnemy, GsEnemyExt;
+export 'models/info/gs_envisaged_echo.dart' show GsEnvisagedEcho;
 export 'models/info/gs_event.dart' show GsEvent;
 export 'models/info/gs_furnishing.dart' show GsFurnishing;
 export 'models/info/gs_furniture_chest.dart' show GsFurnitureChest;

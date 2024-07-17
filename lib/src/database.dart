@@ -16,6 +16,7 @@ Iterable<Items> get _infoCollections {
     Items<GsCharacterSkin>('characters_outfits', GsCharacterSkin.fromJson),
     Items<GsEvent>('events', GsEvent.fromJson),
     Items<GsEnemy>('enemies', GsEnemy.fromJson),
+    Items<GsEnvisagedEcho>('echos', GsEnvisagedEcho.fromJson),
     Items<GsRegion>('cities', GsRegion.fromJson),
     Items<GsMaterial>('materials', GsMaterial.fromJson),
     Items<GsNamecard>('namecards', GsNamecard.fromJson),
