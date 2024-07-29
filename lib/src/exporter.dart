@@ -29,8 +29,8 @@ export 'models/info/gs_achievement_group.dart' show GsAchievementGroup;
 export 'models/info/gs_artifact.dart' show GsArtifact, GsArtifactPiece;
 export 'models/info/gs_banner.dart' show GsBanner;
 export 'models/info/gs_battlepass.dart' show GsBattlepass;
-export 'models/info/gs_character.dart'
-    show GsCharacter, GsCharTalent, GsCharConstellation;
+export 'models/info/gs_character.dart' show GsCharTalent, GsCharConstellation;
+export 'models/info/gs_character.dart' show GsCharacter;
 export 'models/info/gs_character_skin.dart' show GsCharacterSkin;
 export 'models/info/gs_enemy.dart' show GsEnemy, GsEnemyExt;
 export 'models/info/gs_envisaged_echo.dart' show GsEnvisagedEcho;
@@ -41,8 +41,8 @@ export 'models/info/gs_material.dart' show GsMaterial;
 export 'models/info/gs_namecard.dart' show GsNamecard;
 export 'models/info/gs_recipe.dart' show GsRecipe, GsIngredient, GsRecipeExt;
 export 'models/info/gs_region.dart' show GsRegion;
-export 'models/info/gs_serenitea_set.dart'
-    show GsSereniteaSet, GsFurnishingAmount;
+export 'models/info/gs_serenitea_set.dart' show GsFurnishingAmount;
+export 'models/info/gs_serenitea_set.dart' show GsSereniteaSet;
 export 'models/info/gs_spincrystal.dart' show GsSpincrystal, GsSpincrystalExt;
 export 'models/info/gs_version.dart' show GsVersion;
 export 'models/info/gs_viewpoint.dart' show GsViewpoint;

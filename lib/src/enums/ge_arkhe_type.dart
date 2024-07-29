@@ -2,6 +2,7 @@ import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeArkheType implements GeEnum {
   none('none'),
+  both('both'),
   ousia('ousia'),
   pneuma('pneuma');
 
