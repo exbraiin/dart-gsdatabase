@@ -3,7 +3,8 @@ import 'package:gsdatabase/src/enums/ge_enum.dart';
 enum GeBannerType implements GeEnum {
   standard('standard'),
   beginner('beginner'),
-  character('character'),
+  character1('character'),
+  character2('character-2'),
   weapon('weapon'),
   chronicled('chronicled');
 
