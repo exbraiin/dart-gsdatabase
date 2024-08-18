@@ -8,6 +8,9 @@ enum GeBannerType implements GeEnum {
   weapon('weapon'),
   chronicled('chronicled');
 
+  bool get isCharacter =>
+      this == GeBannerType.character1 || this == GeBannerType.character2;
+
   bool get isPermanent =>
       this == GeBannerType.standard || this == GeBannerType.beginner;
 
