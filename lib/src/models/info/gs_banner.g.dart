@@ -22,6 +22,8 @@ class GsBanner extends _GsBanner {
   @override
   final GeBannerType type;
   @override
+  final int subtype;
+  @override
   final List<String> feature4;
   @override
   final List<String> feature5;
@@ -35,6 +37,7 @@ class GsBanner extends _GsBanner {
     required this.dateEnd,
     required this.version,
     required this.type,
+    required this.subtype,
     required this.feature4,
     required this.feature5,
   });
@@ -49,6 +52,7 @@ class GsBanner extends _GsBanner {
         dateEnd = DateTime.tryParse(m['date_end'].toString()) ?? DateTime(0),
         version = m['version'] as String? ?? '',
         type = GeBannerType.values.fromId(m['type']),
+        subtype = m['subtype'] as int? ?? 0,
         feature4 = (m['feature_4'] as List? ?? const []).cast<String>(),
         feature5 = (m['feature_5'] as List? ?? const []).cast<String>();
 
@@ -62,6 +66,7 @@ class GsBanner extends _GsBanner {
     DateTime? dateEnd,
     String? version,
     GeBannerType? type,
+    int? subtype,
     List<String>? feature4,
     List<String>? feature5,
   }) {
@@ -73,6 +78,7 @@ class GsBanner extends _GsBanner {
       dateEnd: dateEnd ?? this.dateEnd,
       version: version ?? this.version,
       type: type ?? this.type,
+      subtype: subtype ?? this.subtype,
       feature4: feature4 ?? this.feature4,
       feature5: feature5 ?? this.feature5,
     );
@@ -89,6 +95,7 @@ class GsBanner extends _GsBanner {
       'date_end': dateEnd.toString(),
       'version': version,
       'type': type.id,
+      'subtype': subtype,
       'feature_4': feature4,
       'feature_5': feature5,
     };

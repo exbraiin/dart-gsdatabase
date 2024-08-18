@@ -17,6 +17,8 @@ abstract class _GsBanner extends GsModel<GsBanner> {
   String get version;
   @BuilderWire('type')
   GeBannerType get type;
+  @BuilderWire('subtype')
+  int get subtype;
   @BuilderWire('feature_4')
   List<String> get feature4;
   @BuilderWire('feature_5')
@@ -26,5 +28,6 @@ abstract class _GsBanner extends GsModel<GsBanner> {
   Iterable<Comparable Function(GsBanner e)> get sorters => [
         (e) => e.type.index,
         (e) => e.dateStart,
+        (e) => e.subtype,
       ];
 }
