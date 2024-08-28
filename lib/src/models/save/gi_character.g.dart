@@ -12,8 +12,6 @@ class GiCharacter extends _GiCharacter {
   @override
   final String outfit;
   @override
-  final int owned;
-  @override
   final int ascension;
   @override
   final int friendship;
@@ -28,7 +26,6 @@ class GiCharacter extends _GiCharacter {
   GiCharacter({
     required this.id,
     this.outfit = '',
-    this.owned = 0,
     this.ascension = 0,
     this.friendship = 1,
     this.talent1 = 1,
@@ -40,7 +37,6 @@ class GiCharacter extends _GiCharacter {
   GiCharacter.fromJson(JsonMap m)
       : id = m['id'] as String? ?? '',
         outfit = m['outfit'] as String? ?? '',
-        owned = m['owned'] as int? ?? 0,
         ascension = m['ascension'] as int? ?? 0,
         friendship = m['friendship'] as int? ?? 0,
         talent1 = m['talent1'] as int? ?? 0,
@@ -52,7 +48,6 @@ class GiCharacter extends _GiCharacter {
   GiCharacter copyWith({
     String? id,
     String? outfit,
-    int? owned,
     int? ascension,
     int? friendship,
     int? talent1,
@@ -62,7 +57,6 @@ class GiCharacter extends _GiCharacter {
     return GiCharacter(
       id: id ?? this.id,
       outfit: outfit ?? this.outfit,
-      owned: owned ?? this.owned,
       ascension: ascension ?? this.ascension,
       friendship: friendship ?? this.friendship,
       talent1: talent1 ?? this.talent1,
@@ -77,7 +71,6 @@ class GiCharacter extends _GiCharacter {
     return {
       'id': id,
       'outfit': outfit,
-      'owned': owned,
       'ascension': ascension,
       'friendship': friendship,
       'talent1': talent1,
