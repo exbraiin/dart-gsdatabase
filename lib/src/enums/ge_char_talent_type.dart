@@ -1,13 +1,15 @@
 import 'package:gsdatabase/src/enums/ge_enum.dart';
 
 enum GeCharTalentType implements GeEnum {
-  normalAttack('Normal Attack'),
-  elementalSkill('Elemental Skill'),
-  elementalBurst('Elemental Burst'),
-  alternateSprint('Alternate Sprint'),
-  ascension1stPassive('1st Ascension Passive'),
-  ascension4thPassive('4th Ascension Passive'),
-  utilityPassive('Utility Passive');
+  none('none'),
+  normalAttack('normal_attack'),
+  elementalSkill('elemental_skill'),
+  elementalBurst('elemental_burst'),
+  alternateSprint('alternate_sprint'),
+  nightRealmGiftPassive('night_realm_passive'),
+  ascension1stPassive('ascension_passive_1'),
+  ascension4thPassive('ascension_passive_4'),
+  utilityPassive('utility_passive');
 
   @override
   final String id;
