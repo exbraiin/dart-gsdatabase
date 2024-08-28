@@ -21,6 +21,10 @@ class GsEvent extends _GsEvent {
   final DateTime dateStart;
   @override
   final DateTime dateEnd;
+  @override
+  final List<String> rewardsWeapons;
+  @override
+  final List<String> rewardsCharacters;
 
   /// Creates a new [GsEvent] instance.
   GsEvent({
@@ -31,6 +35,8 @@ class GsEvent extends _GsEvent {
     required this.version,
     required this.dateStart,
     required this.dateEnd,
+    required this.rewardsWeapons,
+    required this.rewardsCharacters,
   });
 
   /// Creates a new [GsEvent] instance from the given map.
@@ -42,7 +48,11 @@ class GsEvent extends _GsEvent {
         version = m['version'] as String? ?? '',
         dateStart =
             DateTime.tryParse(m['date_start'].toString()) ?? DateTime(0),
-        dateEnd = DateTime.tryParse(m['date_end'].toString()) ?? DateTime(0);
+        dateEnd = DateTime.tryParse(m['date_end'].toString()) ?? DateTime(0),
+        rewardsWeapons =
+            (m['rewards_weapons'] as List? ?? const []).cast<String>(),
+        rewardsCharacters =
+            (m['rewards_characters'] as List? ?? const []).cast<String>();
 
   /// Copies this model with the given parameters.
   @override
@@ -54,6 +64,8 @@ class GsEvent extends _GsEvent {
     String? version,
     DateTime? dateStart,
     DateTime? dateEnd,
+    List<String>? rewardsWeapons,
+    List<String>? rewardsCharacters,
   }) {
     return GsEvent(
       id: id ?? this.id,
@@ -63,6 +75,8 @@ class GsEvent extends _GsEvent {
       version: version ?? this.version,
       dateStart: dateStart ?? this.dateStart,
       dateEnd: dateEnd ?? this.dateEnd,
+      rewardsWeapons: rewardsWeapons ?? this.rewardsWeapons,
+      rewardsCharacters: rewardsCharacters ?? this.rewardsCharacters,
     );
   }
 
@@ -77,6 +91,8 @@ class GsEvent extends _GsEvent {
       'version': version,
       'date_start': dateStart.toString(),
       'date_end': dateEnd.toString(),
+      'rewards_weapons': rewardsWeapons,
+      'rewards_characters': rewardsCharacters,
     };
   }
 }

@@ -17,6 +17,10 @@ abstract class _GsEvent extends GsModel<GsEvent> {
   DateTime get dateStart;
   @BuilderWire('date_end')
   DateTime get dateEnd;
+  @BuilderWire('rewards_weapons')
+  List<String> get rewardsWeapons;
+  @BuilderWire('rewards_characters')
+  List<String> get rewardsCharacters;
 
   @override
   Iterable<Comparable Function(GsEvent e)> get sorters => [

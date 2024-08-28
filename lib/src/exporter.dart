@@ -51,6 +51,7 @@ export 'models/info/gs_wish.dart' show GsWish;
 // --- SAVE MODELS ---
 export 'models/save/gi_achievement.dart' show GiAchievement;
 export 'models/save/gi_character.dart' show GiCharacter;
+export 'models/save/gi_event_rewards.dart' show GiEventRewards;
 export 'models/save/gi_furnishing.dart' show GiFurnishing;
 export 'models/save/gi_furniture_chest.dart' show GiFurnitureChest;
 export 'models/save/gi_player_info.dart' show GiPlayerInfo;

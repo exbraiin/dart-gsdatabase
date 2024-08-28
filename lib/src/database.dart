@@ -43,6 +43,7 @@ Iterable<Items> get _saveCollections {
     Items<GiSpincrystal>('spincrystals', GiSpincrystal.fromJson),
     Items<GiPlayerInfo>('user_configs', GiPlayerInfo.fromJson),
     Items<GiFurnishing>('furnishing', GiFurnishing.fromJson),
+    Items<GiEventRewards>('event_rewards', GiEventRewards.fromJson),
   ];
 }
 

@@ -34,5 +34,7 @@ abstract class _GsMaterial extends GsModel<GsMaterial> {
         (e) => e.region.index,
         (e) => e.subgroup,
         (e) => e.rarity,
+        (e) => e.version,
+        (e) => e.name,
       ];
 }
