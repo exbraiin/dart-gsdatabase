@@ -1,6 +1,6 @@
 name: gsdatabase
 description: Dart library to load and parse my custom gsdatabase
-version: 1.1.1
+version: 1.1.2
 # repository: https://github.com/exbraiin/dart-gsdatabase
 
 environment:
