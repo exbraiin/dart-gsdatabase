@@ -10,7 +10,8 @@ enum GeRecipeEffectType implements GeEnum {
   staminaReduction('staminaReduction'),
   atkCritBoost('atkCritBoost'),
   defBoost('defBoost'),
-  adventure('adventure');
+  adventure('adventure'),
+  special('special');
 
   @override
   final String id;
