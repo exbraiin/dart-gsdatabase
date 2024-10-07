@@ -23,8 +23,6 @@ class GsNamecard extends _GsNamecard {
   final String fullImage;
   @override
   final String desc;
-  @override
-  final String obtain;
 
   /// Creates a new [GsNamecard] instance.
   GsNamecard({
@@ -36,7 +34,6 @@ class GsNamecard extends _GsNamecard {
     required this.image,
     required this.fullImage,
     required this.desc,
-    required this.obtain,
   });
 
   /// Creates a new [GsNamecard] instance from the given map.
@@ -48,8 +45,7 @@ class GsNamecard extends _GsNamecard {
         version = m['version'] as String? ?? '',
         image = m['image'] as String? ?? '',
         fullImage = m['full_image'] as String? ?? '',
-        desc = m['desc'] as String? ?? '',
-        obtain = m['obtain'] as String? ?? '';
+        desc = m['desc'] as String? ?? '';
 
   /// Copies this model with the given parameters.
   @override
@@ -62,7 +58,6 @@ class GsNamecard extends _GsNamecard {
     String? image,
     String? fullImage,
     String? desc,
-    String? obtain,
   }) {
     return GsNamecard(
       id: id ?? this.id,
@@ -73,7 +68,6 @@ class GsNamecard extends _GsNamecard {
       image: image ?? this.image,
       fullImage: fullImage ?? this.fullImage,
       desc: desc ?? this.desc,
-      obtain: obtain ?? this.obtain,
     );
   }
 
@@ -89,7 +83,6 @@ class GsNamecard extends _GsNamecard {
       'image': image,
       'full_image': fullImage,
       'desc': desc,
-      'obtain': obtain,
     };
   }
 }

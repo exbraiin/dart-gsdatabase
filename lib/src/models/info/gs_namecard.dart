@@ -19,8 +19,6 @@ abstract class _GsNamecard extends GsModel<GsNamecard> {
   String get fullImage;
   @BuilderWire('desc')
   String get desc;
-  @BuilderWire('obtain')
-  String get obtain;
 
   @override
   Iterable<Comparable Function(GsNamecard e)> get sorters => [

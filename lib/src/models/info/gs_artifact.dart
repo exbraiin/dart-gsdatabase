@@ -1,4 +1,4 @@
-import 'package:gsdatabase/src/enums/ge_region_type.dart';
+import 'package:gsdatabase/gsdatabase.dart';
 import 'package:gsdatabase/src/models/gs_model.dart';
 
 part 'gs_artifact.g.dart';
@@ -40,4 +40,6 @@ abstract class _GsArtifactPiece extends GsModel<GsArtifactPiece> {
   String get icon;
   @BuilderWire('desc')
   String get desc;
+  @BuilderWire('type')
+  GeArtifactPieceType get type;
 }

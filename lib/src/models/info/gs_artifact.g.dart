@@ -112,6 +112,8 @@ class GsArtifactPiece extends _GsArtifactPiece {
   final String icon;
   @override
   final String desc;
+  @override
+  final GeArtifactPieceType type;
 
   /// Creates a new [GsArtifactPiece] instance.
   GsArtifactPiece({
@@ -119,6 +121,7 @@ class GsArtifactPiece extends _GsArtifactPiece {
     required this.name,
     required this.icon,
     required this.desc,
+    required this.type,
   });
 
   /// Creates a new [GsArtifactPiece] instance from the given map.
@@ -126,7 +129,8 @@ class GsArtifactPiece extends _GsArtifactPiece {
       : id = m['id'] as String? ?? '',
         name = m['name'] as String? ?? '',
         icon = m['icon'] as String? ?? '',
-        desc = m['desc'] as String? ?? '';
+        desc = m['desc'] as String? ?? '',
+        type = GeArtifactPieceType.values.fromId(m['type']);
 
   /// Copies this model with the given parameters.
   @override
@@ -135,12 +139,14 @@ class GsArtifactPiece extends _GsArtifactPiece {
     String? name,
     String? icon,
     String? desc,
+    GeArtifactPieceType? type,
   }) {
     return GsArtifactPiece(
       id: id ?? this.id,
       name: name ?? this.name,
       icon: icon ?? this.icon,
       desc: desc ?? this.desc,
+      type: type ?? this.type,
     );
   }
 
@@ -152,6 +158,7 @@ class GsArtifactPiece extends _GsArtifactPiece {
       'name': name,
       'icon': icon,
       'desc': desc,
+      'type': type.id,
     };
   }
 }
