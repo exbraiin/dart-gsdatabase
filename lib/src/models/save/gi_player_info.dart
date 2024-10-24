@@ -24,6 +24,14 @@ abstract class _GiPlayerInfo extends GsModel<GiPlayerInfo> {
   int get towerFloor;
   @BuilderWire('tower_chamber')
   int get towerChamber;
+  @BuilderWire('tower_stars')
+  int get towerStars;
+  @BuilderWire('theater_act')
+  int get theaterAct;
+  @BuilderWire('theater_mode')
+  int get theaterMode;
+  @BuilderWire('theater_stars')
+  int get theaterStars;
   @BuilderWire('avatars')
   Map<String, int> get avatars;
 }

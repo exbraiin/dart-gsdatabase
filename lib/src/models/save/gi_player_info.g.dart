@@ -30,6 +30,14 @@ class GiPlayerInfo extends _GiPlayerInfo {
   @override
   final int towerChamber;
   @override
+  final int towerStars;
+  @override
+  final int theaterAct;
+  @override
+  final int theaterMode;
+  @override
+  final int theaterStars;
+  @override
   final Map<String, int> avatars;
 
   /// Creates a new [GiPlayerInfo] instance.
@@ -45,6 +53,10 @@ class GiPlayerInfo extends _GiPlayerInfo {
     required this.achievements,
     required this.towerFloor,
     required this.towerChamber,
+    required this.towerStars,
+    required this.theaterAct,
+    required this.theaterMode,
+    required this.theaterStars,
     required this.avatars,
   });
 
@@ -61,6 +73,10 @@ class GiPlayerInfo extends _GiPlayerInfo {
         achievements = m['achievements'] as int? ?? 0,
         towerFloor = m['tower_floor'] as int? ?? 0,
         towerChamber = m['tower_chamber'] as int? ?? 0,
+        towerStars = m['tower_stars'] as int? ?? 0,
+        theaterAct = m['theater_act'] as int? ?? 0,
+        theaterMode = m['theater_mode'] as int? ?? 0,
+        theaterStars = m['theater_stars'] as int? ?? 0,
         avatars = (m['avatars'] as Map? ?? const {}).cast<String, int>();
 
   /// Copies this model with the given parameters.
@@ -77,6 +93,10 @@ class GiPlayerInfo extends _GiPlayerInfo {
     int? achievements,
     int? towerFloor,
     int? towerChamber,
+    int? towerStars,
+    int? theaterAct,
+    int? theaterMode,
+    int? theaterStars,
     Map<String, int>? avatars,
   }) {
     return GiPlayerInfo(
@@ -91,6 +111,10 @@ class GiPlayerInfo extends _GiPlayerInfo {
       achievements: achievements ?? this.achievements,
       towerFloor: towerFloor ?? this.towerFloor,
       towerChamber: towerChamber ?? this.towerChamber,
+      towerStars: towerStars ?? this.towerStars,
+      theaterAct: theaterAct ?? this.theaterAct,
+      theaterMode: theaterMode ?? this.theaterMode,
+      theaterStars: theaterStars ?? this.theaterStars,
       avatars: avatars ?? this.avatars,
     );
   }
@@ -110,6 +134,10 @@ class GiPlayerInfo extends _GiPlayerInfo {
       'achievements': achievements,
       'tower_floor': towerFloor,
       'tower_chamber': towerChamber,
+      'tower_stars': towerStars,
+      'theater_act': theaterAct,
+      'theater_mode': theaterMode,
+      'theater_stars': theaterStars,
       'avatars': avatars,
     };
   }
