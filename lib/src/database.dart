@@ -15,7 +15,6 @@ Iterable<Items> get _infoCollections {
     Items<GsCharacter>('characters', GsCharacter.fromJson),
     Items<GsCharacterSkin>('characters_outfits', GsCharacterSkin.fromJson),
     Items<GsEvent>('events', GsEvent.fromJson),
-    Items<GsEnemy>('enemies', GsEnemy.fromJson),
     Items<GsEnvisagedEcho>('echos', GsEnvisagedEcho.fromJson),
     Items<GsRegion>('cities', GsRegion.fromJson),
     Items<GsMaterial>('materials', GsMaterial.fromJson),
@@ -26,13 +25,13 @@ Iterable<Items> get _infoCollections {
     Items<GsFurnishing>('furnishing', GsFurnishing.fromJson),
     Items<GsSpincrystal>('spincrystals', GsSpincrystal.fromJson),
     Items<GsVersion>('versions', GsVersion.fromJson),
-    Items<GsViewpoint>('viewpoints', GsViewpoint.fromJson),
     Items<GsWeapon>('weapons', GsWeapon.fromJson),
   ];
 }
 
 Iterable<Items> get _saveCollections {
   return [
+    Items<GiAccountInfo>('account', GiAccountInfo.fromJson),
     Items<GiAchievement>('achievements', GiAchievement.fromJson),
     Items<GiWish>('wishes', GiWish.fromJson),
     Items<GiRecipe>('recipes', GiRecipe.fromJson),
