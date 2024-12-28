@@ -11,7 +11,7 @@ abstract class _GsEnvisagedEcho extends GsModel<GsEnvisagedEcho> {
   @BuilderWire('character')
   String get character;
   @BuilderWire('rarity')
-  String get rarity;
+  int get rarity;
   @BuilderWire('icon')
   String get icon;
   @BuilderWire('stage')

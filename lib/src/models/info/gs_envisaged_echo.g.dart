@@ -16,7 +16,7 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
   @override
   final String character;
   @override
-  final String rarity;
+  final int rarity;
   @override
   final String icon;
   @override
@@ -42,7 +42,7 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
         name = m['name'] as String? ?? '',
         description = m['desc'] as String? ?? '',
         character = m['character'] as String? ?? '',
-        rarity = m['rarity'] as String? ?? '',
+        rarity = m['rarity'] as int? ?? 0,
         icon = m['icon'] as String? ?? '',
         stage = m['stage'] as String? ?? '',
         version = m['version'] as String? ?? '';
@@ -54,7 +54,7 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
     String? name,
     String? description,
     String? character,
-    String? rarity,
+    int? rarity,
     String? icon,
     String? stage,
     String? version,
