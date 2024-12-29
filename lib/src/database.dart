@@ -35,6 +35,7 @@ Iterable<Items> get _saveCollections {
     Items<GiAchievement>('achievements', GiAchievement.fromJson),
     Items<GiWish>('wishes', GiWish.fromJson),
     Items<GiRecipe>('recipes', GiRecipe.fromJson),
+    Items<GiEnvisagedEcho>('echoes', GiEnvisagedEcho.fromJson),
     Items<GiFurnitureChest>('remarkable_chests', GiFurnitureChest.fromJson),
     Items<GiCharacter>('characters', GiCharacter.fromJson),
     Items<GiReputation>('reputation', GiReputation.fromJson),

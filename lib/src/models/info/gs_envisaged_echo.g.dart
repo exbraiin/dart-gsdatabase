@@ -20,8 +20,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
   @override
   final String icon;
   @override
-  final String stage;
-  @override
   final String version;
 
   /// Creates a new [GsEnvisagedEcho] instance.
@@ -32,7 +30,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
     required this.character,
     required this.rarity,
     required this.icon,
-    required this.stage,
     required this.version,
   });
 
@@ -44,7 +41,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
         character = m['character'] as String? ?? '',
         rarity = m['rarity'] as int? ?? 0,
         icon = m['icon'] as String? ?? '',
-        stage = m['stage'] as String? ?? '',
         version = m['version'] as String? ?? '';
 
   /// Copies this model with the given parameters.
@@ -56,7 +52,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
     String? character,
     int? rarity,
     String? icon,
-    String? stage,
     String? version,
   }) {
     return GsEnvisagedEcho(
@@ -66,7 +61,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
       character: character ?? this.character,
       rarity: rarity ?? this.rarity,
       icon: icon ?? this.icon,
-      stage: stage ?? this.stage,
       version: version ?? this.version,
     );
   }
@@ -81,7 +75,6 @@ class GsEnvisagedEcho extends _GsEnvisagedEcho {
       'character': character,
       'rarity': rarity,
       'icon': icon,
-      'stage': stage,
       'version': version,
     };
   }
