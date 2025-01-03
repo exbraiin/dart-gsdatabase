@@ -4,8 +4,6 @@ part 'gi_character.g.dart';
 
 @BuilderGenerator()
 abstract class _GiCharacter extends GsModel<GiCharacter> {
-  @BuilderWire('outfit', value: '')
-  String get outfit;
   @BuilderWire('ascension', value: 0)
   int get ascension;
   @BuilderWire('friendship', value: 1)

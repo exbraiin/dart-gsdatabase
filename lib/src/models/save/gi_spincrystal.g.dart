@@ -9,29 +9,22 @@ part of 'gi_spincrystal.dart';
 class GiSpincrystal extends _GiSpincrystal {
   @override
   final String id;
-  @override
-  final bool obtained;
 
   /// Creates a new [GiSpincrystal] instance.
   GiSpincrystal({
     required this.id,
-    required this.obtained,
   });
 
   /// Creates a new [GiSpincrystal] instance from the given map.
-  GiSpincrystal.fromJson(JsonMap m)
-      : id = m['id'] as String? ?? '',
-        obtained = m['obtained'] as bool? ?? false;
+  GiSpincrystal.fromJson(JsonMap m) : id = m['id'] as String? ?? '';
 
   /// Copies this model with the given parameters.
   @override
   GiSpincrystal copyWith({
     String? id,
-    bool? obtained,
   }) {
     return GiSpincrystal(
       id: id ?? this.id,
-      obtained: obtained ?? this.obtained,
     );
   }
 
@@ -40,7 +33,6 @@ class GiSpincrystal extends _GiSpincrystal {
   JsonMap toMap() {
     return {
       'id': id,
-      'obtained': obtained,
     };
   }
 }

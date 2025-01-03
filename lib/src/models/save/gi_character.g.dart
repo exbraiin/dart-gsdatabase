@@ -10,8 +10,6 @@ class GiCharacter extends _GiCharacter {
   @override
   final String id;
   @override
-  final String outfit;
-  @override
   final int ascension;
   @override
   final int friendship;
@@ -25,7 +23,6 @@ class GiCharacter extends _GiCharacter {
   /// Creates a new [GiCharacter] instance.
   GiCharacter({
     required this.id,
-    this.outfit = '',
     this.ascension = 0,
     this.friendship = 1,
     this.talent1 = 1,
@@ -36,7 +33,6 @@ class GiCharacter extends _GiCharacter {
   /// Creates a new [GiCharacter] instance from the given map.
   GiCharacter.fromJson(JsonMap m)
       : id = m['id'] as String? ?? '',
-        outfit = m['outfit'] as String? ?? '',
         ascension = m['ascension'] as int? ?? 0,
         friendship = m['friendship'] as int? ?? 0,
         talent1 = m['talent1'] as int? ?? 0,
@@ -47,7 +43,6 @@ class GiCharacter extends _GiCharacter {
   @override
   GiCharacter copyWith({
     String? id,
-    String? outfit,
     int? ascension,
     int? friendship,
     int? talent1,
@@ -56,7 +51,6 @@ class GiCharacter extends _GiCharacter {
   }) {
     return GiCharacter(
       id: id ?? this.id,
-      outfit: outfit ?? this.outfit,
       ascension: ascension ?? this.ascension,
       friendship: friendship ?? this.friendship,
       talent1: talent1 ?? this.talent1,
@@ -70,7 +64,6 @@ class GiCharacter extends _GiCharacter {
   JsonMap toMap() {
     return {
       'id': id,
-      'outfit': outfit,
       'ascension': ascension,
       'friendship': friendship,
       'talent1': talent1,

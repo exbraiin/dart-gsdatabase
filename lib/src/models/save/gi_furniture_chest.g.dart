@@ -9,29 +9,22 @@ part of 'gi_furniture_chest.dart';
 class GiFurnitureChest extends _GiFurnitureChest {
   @override
   final String id;
-  @override
-  final bool obtained;
 
   /// Creates a new [GiFurnitureChest] instance.
   GiFurnitureChest({
     required this.id,
-    required this.obtained,
   });
 
   /// Creates a new [GiFurnitureChest] instance from the given map.
-  GiFurnitureChest.fromJson(JsonMap m)
-      : id = m['id'] as String? ?? '',
-        obtained = m['obtained'] as bool? ?? false;
+  GiFurnitureChest.fromJson(JsonMap m) : id = m['id'] as String? ?? '';
 
   /// Copies this model with the given parameters.
   @override
   GiFurnitureChest copyWith({
     String? id,
-    bool? obtained,
   }) {
     return GiFurnitureChest(
       id: id ?? this.id,
-      obtained: obtained ?? this.obtained,
     );
   }
 
@@ -40,7 +33,6 @@ class GiFurnitureChest extends _GiFurnitureChest {
   JsonMap toMap() {
     return {
       'id': id,
-      'obtained': obtained,
     };
   }
 }
