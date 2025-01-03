@@ -17,12 +17,8 @@ abstract class _GsWeapon extends GsModel<GsWeapon> {
   String get imageAsc;
   @BuilderWire('type')
   GeWeaponType get type;
-  @BuilderWire('atk')
-  int get atk;
   @BuilderWire('stat_type')
   GeWeaponAscStatType get statType;
-  @BuilderWire('stat_value')
-  double get statValue;
   @BuilderWire('desc')
   String get desc;
   @BuilderWire('version')
@@ -40,10 +36,10 @@ abstract class _GsWeapon extends GsModel<GsWeapon> {
   String get matCommon;
   @BuilderWire('mat_elite')
   String get matElite;
-  @BuilderWire('asc_atk_values')
-  String get ascAtkValues;
-  @BuilderWire('asc_stat_values')
-  String get ascStatValues;
+  @BuilderWire('asc_atk_value')
+  int get ascAtkValue;
+  @BuilderWire('asc_stat_value')
+  double get ascStatValue;
 
   @override
   Iterable<Comparable Function(GsWeapon e)> get sorters => [

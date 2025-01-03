@@ -22,13 +22,9 @@ class GsCharacter extends _GsCharacter {
   @override
   final GeRegionType region;
   @override
-  final GeArkheType arkhe;
-  @override
   final GeWeaponType weapon;
   @override
   final GeElementType element;
-  @override
-  final GeGenderType gender;
   @override
   final String version;
   @override
@@ -48,8 +44,6 @@ class GsCharacter extends _GsCharacter {
   @override
   final String image;
   @override
-  final String sideImage;
-  @override
   final String fullImage;
   @override
   final String constellationImage;
@@ -68,17 +62,13 @@ class GsCharacter extends _GsCharacter {
   @override
   final GeCharacterAscStatType ascStatType;
   @override
-  final String ascHpValues;
+  final int ascHpValue;
   @override
-  final String ascAtkValues;
+  final int ascAtkValue;
   @override
-  final String ascDefValues;
+  final int ascDefValue;
   @override
-  final String ascStatValues;
-  @override
-  final List<GsCharTalent> talents;
-  @override
-  final List<GsCharConstellation> constellations;
+  final double ascStatValue;
 
   /// Creates a new [GsCharacter] instance.
   GsCharacter({
@@ -89,10 +79,8 @@ class GsCharacter extends _GsCharacter {
     required this.title,
     required this.rarity,
     required this.region,
-    required this.arkhe,
     required this.weapon,
     required this.element,
-    required this.gender,
     required this.version,
     required this.source,
     required this.description,
@@ -102,7 +90,6 @@ class GsCharacter extends _GsCharacter {
     required this.birthday,
     required this.releaseDate,
     required this.image,
-    required this.sideImage,
     required this.fullImage,
     required this.constellationImage,
     required this.gemMaterial,
@@ -112,12 +99,10 @@ class GsCharacter extends _GsCharacter {
     required this.talentMaterial,
     required this.weeklyMaterial,
     required this.ascStatType,
-    required this.ascHpValues,
-    required this.ascAtkValues,
-    required this.ascDefValues,
-    required this.ascStatValues,
-    required this.talents,
-    required this.constellations,
+    required this.ascHpValue,
+    required this.ascAtkValue,
+    required this.ascDefValue,
+    required this.ascStatValue,
   });
 
   /// Creates a new [GsCharacter] instance from the given map.
@@ -129,10 +114,8 @@ class GsCharacter extends _GsCharacter {
         title = m['title'] as String? ?? '',
         rarity = m['rarity'] as int? ?? 0,
         region = GeRegionType.values.fromId(m['region']),
-        arkhe = GeArkheType.values.fromId(m['arkhe']),
         weapon = GeWeaponType.values.fromId(m['weapon']),
         element = GeElementType.values.fromId(m['element']),
-        gender = GeGenderType.values.fromId(m['gender']),
         version = m['version'] as String? ?? '',
         source = GeItemSourceType.values.fromId(m['source']),
         description = m['description'] as String? ?? '',
@@ -143,7 +126,6 @@ class GsCharacter extends _GsCharacter {
         releaseDate =
             DateTime.tryParse(m['release_date'].toString()) ?? DateTime(0),
         image = m['image'] as String? ?? '',
-        sideImage = m['side_image'] as String? ?? '',
         fullImage = m['full_image'] as String? ?? '',
         constellationImage = m['constellation_image'] as String? ?? '',
         gemMaterial = m['mat_gem'] as String? ?? '',
@@ -153,16 +135,10 @@ class GsCharacter extends _GsCharacter {
         talentMaterial = m['mat_talent'] as String? ?? '',
         weeklyMaterial = m['mat_weekly'] as String? ?? '',
         ascStatType = GeCharacterAscStatType.values.fromId(m['asc_stat_type']),
-        ascHpValues = m['asc_hp_values'] as String? ?? '',
-        ascAtkValues = m['asc_atk_values'] as String? ?? '',
-        ascDefValues = m['asc_def_values'] as String? ?? '',
-        ascStatValues = m['asc_stat_values'] as String? ?? '',
-        talents = (m['talents'] as List? ?? const [])
-            .map((e) => GsCharTalent.fromJson(e))
-            .toList(),
-        constellations = (m['constellations'] as List? ?? const [])
-            .map((e) => GsCharConstellation.fromJson(e))
-            .toList();
+        ascHpValue = m['asc_hp_value'] as int? ?? 0,
+        ascAtkValue = m['asc_atk_value'] as int? ?? 0,
+        ascDefValue = m['asc_def_value'] as int? ?? 0,
+        ascStatValue = m['asc_stat_value'] as double? ?? 0;
 
   /// Copies this model with the given parameters.
   @override
@@ -174,10 +150,8 @@ class GsCharacter extends _GsCharacter {
     String? title,
     int? rarity,
     GeRegionType? region,
-    GeArkheType? arkhe,
     GeWeaponType? weapon,
     GeElementType? element,
-    GeGenderType? gender,
     String? version,
     GeItemSourceType? source,
     String? description,
@@ -187,7 +161,6 @@ class GsCharacter extends _GsCharacter {
     DateTime? birthday,
     DateTime? releaseDate,
     String? image,
-    String? sideImage,
     String? fullImage,
     String? constellationImage,
     String? gemMaterial,
@@ -197,12 +170,10 @@ class GsCharacter extends _GsCharacter {
     String? talentMaterial,
     String? weeklyMaterial,
     GeCharacterAscStatType? ascStatType,
-    String? ascHpValues,
-    String? ascAtkValues,
-    String? ascDefValues,
-    String? ascStatValues,
-    List<GsCharTalent>? talents,
-    List<GsCharConstellation>? constellations,
+    int? ascHpValue,
+    int? ascAtkValue,
+    int? ascDefValue,
+    double? ascStatValue,
   }) {
     return GsCharacter(
       id: id ?? this.id,
@@ -212,10 +183,8 @@ class GsCharacter extends _GsCharacter {
       title: title ?? this.title,
       rarity: rarity ?? this.rarity,
       region: region ?? this.region,
-      arkhe: arkhe ?? this.arkhe,
       weapon: weapon ?? this.weapon,
       element: element ?? this.element,
-      gender: gender ?? this.gender,
       version: version ?? this.version,
       source: source ?? this.source,
       description: description ?? this.description,
@@ -225,7 +194,6 @@ class GsCharacter extends _GsCharacter {
       birthday: birthday ?? this.birthday,
       releaseDate: releaseDate ?? this.releaseDate,
       image: image ?? this.image,
-      sideImage: sideImage ?? this.sideImage,
       fullImage: fullImage ?? this.fullImage,
       constellationImage: constellationImage ?? this.constellationImage,
       gemMaterial: gemMaterial ?? this.gemMaterial,
@@ -235,12 +203,10 @@ class GsCharacter extends _GsCharacter {
       talentMaterial: talentMaterial ?? this.talentMaterial,
       weeklyMaterial: weeklyMaterial ?? this.weeklyMaterial,
       ascStatType: ascStatType ?? this.ascStatType,
-      ascHpValues: ascHpValues ?? this.ascHpValues,
-      ascAtkValues: ascAtkValues ?? this.ascAtkValues,
-      ascDefValues: ascDefValues ?? this.ascDefValues,
-      ascStatValues: ascStatValues ?? this.ascStatValues,
-      talents: talents ?? this.talents,
-      constellations: constellations ?? this.constellations,
+      ascHpValue: ascHpValue ?? this.ascHpValue,
+      ascAtkValue: ascAtkValue ?? this.ascAtkValue,
+      ascDefValue: ascDefValue ?? this.ascDefValue,
+      ascStatValue: ascStatValue ?? this.ascStatValue,
     );
   }
 
@@ -255,10 +221,8 @@ class GsCharacter extends _GsCharacter {
       'title': title,
       'rarity': rarity,
       'region': region.id,
-      'arkhe': arkhe.id,
       'weapon': weapon.id,
       'element': element.id,
-      'gender': gender.id,
       'version': version,
       'source': source.id,
       'description': description,
@@ -268,7 +232,6 @@ class GsCharacter extends _GsCharacter {
       'birthday': birthday.toString(),
       'release_date': releaseDate.toString(),
       'image': image,
-      'side_image': sideImage,
       'full_image': fullImage,
       'constellation_image': constellationImage,
       'mat_gem': gemMaterial,
@@ -278,132 +241,10 @@ class GsCharacter extends _GsCharacter {
       'mat_talent': talentMaterial,
       'mat_weekly': weeklyMaterial,
       'asc_stat_type': ascStatType.id,
-      'asc_hp_values': ascHpValues,
-      'asc_atk_values': ascAtkValues,
-      'asc_def_values': ascDefValues,
-      'asc_stat_values': ascStatValues,
-      'talents': talents.map((e) => e.toMap()).toList(),
-      'constellations': constellations.map((e) => e.toMap()).toList(),
-    };
-  }
-}
-
-class GsCharTalent extends _GsCharTalent {
-  @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final GeCharTalentType type;
-  @override
-  final String icon;
-  @override
-  final String desc;
-
-  /// Creates a new [GsCharTalent] instance.
-  GsCharTalent({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.icon,
-    required this.desc,
-  });
-
-  /// Creates a new [GsCharTalent] instance from the given map.
-  GsCharTalent.fromJson(JsonMap m)
-      : id = m['id'] as String? ?? '',
-        name = m['name'] as String? ?? '',
-        type = GeCharTalentType.values.fromId(m['type']),
-        icon = m['icon'] as String? ?? '',
-        desc = m['desc'] as String? ?? '';
-
-  /// Copies this model with the given parameters.
-  @override
-  GsCharTalent copyWith({
-    String? id,
-    String? name,
-    GeCharTalentType? type,
-    String? icon,
-    String? desc,
-  }) {
-    return GsCharTalent(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      type: type ?? this.type,
-      icon: icon ?? this.icon,
-      desc: desc ?? this.desc,
-    );
-  }
-
-  /// Creates a [JsonMap] from this model.
-  @override
-  JsonMap toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'type': type.id,
-      'icon': icon,
-      'desc': desc,
-    };
-  }
-}
-
-class GsCharConstellation extends _GsCharConstellation {
-  @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final String icon;
-  @override
-  final String desc;
-  @override
-  final GeCharConstellationType type;
-
-  /// Creates a new [GsCharConstellation] instance.
-  GsCharConstellation({
-    required this.id,
-    required this.name,
-    required this.icon,
-    required this.desc,
-    required this.type,
-  });
-
-  /// Creates a new [GsCharConstellation] instance from the given map.
-  GsCharConstellation.fromJson(JsonMap m)
-      : id = m['id'] as String? ?? '',
-        name = m['name'] as String? ?? '',
-        icon = m['icon'] as String? ?? '',
-        desc = m['desc'] as String? ?? '',
-        type = GeCharConstellationType.values.fromId(m['type']);
-
-  /// Copies this model with the given parameters.
-  @override
-  GsCharConstellation copyWith({
-    String? id,
-    String? name,
-    String? icon,
-    String? desc,
-    GeCharConstellationType? type,
-  }) {
-    return GsCharConstellation(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      icon: icon ?? this.icon,
-      desc: desc ?? this.desc,
-      type: type ?? this.type,
-    );
-  }
-
-  /// Creates a [JsonMap] from this model.
-  @override
-  JsonMap toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'icon': icon,
-      'desc': desc,
-      'type': type.id,
+      'asc_hp_value': ascHpValue,
+      'asc_atk_value': ascAtkValue,
+      'asc_def_value': ascDefValue,
+      'asc_stat_value': ascStatValue,
     };
   }
 }

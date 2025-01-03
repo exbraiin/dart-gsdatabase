@@ -8,14 +8,12 @@ void main(List<String> arguments) async {
   if (char != null) {
     print(char.id);
     print(char.name);
-    print(char.constellations.length);
   }
 
   final weap = db.of<GsWeapon>().items.lastOrNull;
   if (weap != null) {
     print(weap.id);
     print(weap.name);
-    print(weap.ascAtkValues);
   }
 
   final version = db.of<GsVersion>().items.firstOrNull;

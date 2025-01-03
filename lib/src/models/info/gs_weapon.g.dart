@@ -20,11 +20,7 @@ class GsWeapon extends _GsWeapon {
   @override
   final GeWeaponType type;
   @override
-  final int atk;
-  @override
   final GeWeaponAscStatType statType;
-  @override
-  final double statValue;
   @override
   final String desc;
   @override
@@ -42,9 +38,9 @@ class GsWeapon extends _GsWeapon {
   @override
   final String matElite;
   @override
-  final String ascAtkValues;
+  final int ascAtkValue;
   @override
-  final String ascStatValues;
+  final double ascStatValue;
 
   /// Creates a new [GsWeapon] instance.
   GsWeapon({
@@ -54,9 +50,7 @@ class GsWeapon extends _GsWeapon {
     required this.image,
     required this.imageAsc,
     required this.type,
-    required this.atk,
     required this.statType,
-    required this.statValue,
     required this.desc,
     required this.version,
     required this.source,
@@ -65,8 +59,8 @@ class GsWeapon extends _GsWeapon {
     required this.matWeapon,
     required this.matCommon,
     required this.matElite,
-    required this.ascAtkValues,
-    required this.ascStatValues,
+    required this.ascAtkValue,
+    required this.ascStatValue,
   });
 
   /// Creates a new [GsWeapon] instance from the given map.
@@ -77,9 +71,7 @@ class GsWeapon extends _GsWeapon {
         image = m['image'] as String? ?? '',
         imageAsc = m['image_asc'] as String? ?? '',
         type = GeWeaponType.values.fromId(m['type']),
-        atk = m['atk'] as int? ?? 0,
         statType = GeWeaponAscStatType.values.fromId(m['stat_type']),
-        statValue = m['stat_value'] as double? ?? 0,
         desc = m['desc'] as String? ?? '',
         version = m['version'] as String? ?? '',
         source = GeItemSourceType.values.fromId(m['source']),
@@ -88,8 +80,8 @@ class GsWeapon extends _GsWeapon {
         matWeapon = m['mat_weapon'] as String? ?? '',
         matCommon = m['mat_common'] as String? ?? '',
         matElite = m['mat_elite'] as String? ?? '',
-        ascAtkValues = m['asc_atk_values'] as String? ?? '',
-        ascStatValues = m['asc_stat_values'] as String? ?? '';
+        ascAtkValue = m['asc_atk_value'] as int? ?? 0,
+        ascStatValue = m['asc_stat_value'] as double? ?? 0;
 
   /// Copies this model with the given parameters.
   @override
@@ -100,9 +92,7 @@ class GsWeapon extends _GsWeapon {
     String? image,
     String? imageAsc,
     GeWeaponType? type,
-    int? atk,
     GeWeaponAscStatType? statType,
-    double? statValue,
     String? desc,
     String? version,
     GeItemSourceType? source,
@@ -111,8 +101,8 @@ class GsWeapon extends _GsWeapon {
     String? matWeapon,
     String? matCommon,
     String? matElite,
-    String? ascAtkValues,
-    String? ascStatValues,
+    int? ascAtkValue,
+    double? ascStatValue,
   }) {
     return GsWeapon(
       id: id ?? this.id,
@@ -121,9 +111,7 @@ class GsWeapon extends _GsWeapon {
       image: image ?? this.image,
       imageAsc: imageAsc ?? this.imageAsc,
       type: type ?? this.type,
-      atk: atk ?? this.atk,
       statType: statType ?? this.statType,
-      statValue: statValue ?? this.statValue,
       desc: desc ?? this.desc,
       version: version ?? this.version,
       source: source ?? this.source,
@@ -132,8 +120,8 @@ class GsWeapon extends _GsWeapon {
       matWeapon: matWeapon ?? this.matWeapon,
       matCommon: matCommon ?? this.matCommon,
       matElite: matElite ?? this.matElite,
-      ascAtkValues: ascAtkValues ?? this.ascAtkValues,
-      ascStatValues: ascStatValues ?? this.ascStatValues,
+      ascAtkValue: ascAtkValue ?? this.ascAtkValue,
+      ascStatValue: ascStatValue ?? this.ascStatValue,
     );
   }
 
@@ -147,9 +135,7 @@ class GsWeapon extends _GsWeapon {
       'image': image,
       'image_asc': imageAsc,
       'type': type.id,
-      'atk': atk,
       'stat_type': statType.id,
-      'stat_value': statValue,
       'desc': desc,
       'version': version,
       'source': source.id,
@@ -158,8 +144,8 @@ class GsWeapon extends _GsWeapon {
       'mat_weapon': matWeapon,
       'mat_common': matCommon,
       'mat_elite': matElite,
-      'asc_atk_values': ascAtkValues,
-      'asc_stat_values': ascStatValues,
+      'asc_atk_value': ascAtkValue,
+      'asc_stat_value': ascStatValue,
     };
   }
 }

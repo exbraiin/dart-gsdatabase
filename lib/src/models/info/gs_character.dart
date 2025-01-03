@@ -17,14 +17,10 @@ abstract class _GsCharacter extends GsModel<GsCharacter> {
   int get rarity;
   @BuilderWire('region')
   GeRegionType get region;
-  @BuilderWire('arkhe')
-  GeArkheType get arkhe;
   @BuilderWire('weapon')
   GeWeaponType get weapon;
   @BuilderWire('element')
   GeElementType get element;
-  @BuilderWire('gender')
-  GeGenderType get gender;
   @BuilderWire('version')
   String get version;
   @BuilderWire('source')
@@ -43,8 +39,6 @@ abstract class _GsCharacter extends GsModel<GsCharacter> {
   DateTime get releaseDate;
   @BuilderWire('image')
   String get image;
-  @BuilderWire('side_image')
-  String get sideImage;
   @BuilderWire('full_image')
   String get fullImage;
   @BuilderWire('constellation_image')
@@ -63,45 +57,17 @@ abstract class _GsCharacter extends GsModel<GsCharacter> {
   String get weeklyMaterial;
   @BuilderWire('asc_stat_type')
   GeCharacterAscStatType get ascStatType;
-  @BuilderWire('asc_hp_values')
-  String get ascHpValues;
-  @BuilderWire('asc_atk_values')
-  String get ascAtkValues;
-  @BuilderWire('asc_def_values')
-  String get ascDefValues;
-  @BuilderWire('asc_stat_values')
-  String get ascStatValues;
-  @BuilderWire('talents')
-  List<_GsCharTalent> get talents;
-  @BuilderWire('constellations')
-  List<_GsCharConstellation> get constellations;
+  @BuilderWire('asc_hp_value')
+  int get ascHpValue;
+  @BuilderWire('asc_atk_value')
+  int get ascAtkValue;
+  @BuilderWire('asc_def_value')
+  int get ascDefValue;
+  @BuilderWire('asc_stat_value')
+  double get ascStatValue;
 
   @override
   Iterable<Comparable Function(GsCharacter e)> get sorters => [
         (e) => e.rarity,
       ];
-}
-
-@BuilderGenerator()
-abstract class _GsCharTalent extends GsModel<GsCharTalent> {
-  @BuilderWire('name')
-  String get name;
-  @BuilderWire('type')
-  GeCharTalentType get type;
-  @BuilderWire('icon')
-  String get icon;
-  @BuilderWire('desc')
-  String get desc;
-}
-
-@BuilderGenerator()
-abstract class _GsCharConstellation extends GsModel<GsCharConstellation> {
-  @BuilderWire('name')
-  String get name;
-  @BuilderWire('icon')
-  String get icon;
-  @BuilderWire('desc')
-  String get desc;
-  @BuilderWire('type')
-  GeCharConstellationType get type;
 }

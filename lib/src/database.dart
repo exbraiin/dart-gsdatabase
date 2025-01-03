@@ -16,7 +16,6 @@ Iterable<Items> get _infoCollections {
     Items<GsCharacterSkin>('characters_outfits', GsCharacterSkin.fromJson),
     Items<GsEvent>('events', GsEvent.fromJson),
     Items<GsEnvisagedEcho>('echos', GsEnvisagedEcho.fromJson),
-    Items<GsRegion>('cities', GsRegion.fromJson),
     Items<GsMaterial>('materials', GsMaterial.fromJson),
     Items<GsNamecard>('namecards', GsNamecard.fromJson),
     Items<GsRecipe>('recipes', GsRecipe.fromJson),
@@ -38,7 +37,6 @@ Iterable<Items> get _saveCollections {
     Items<GiEnvisagedEcho>('echoes', GiEnvisagedEcho.fromJson),
     Items<GiFurnitureChest>('remarkable_chests', GiFurnitureChest.fromJson),
     Items<GiCharacter>('characters', GiCharacter.fromJson),
-    Items<GiReputation>('reputation', GiReputation.fromJson),
     Items<GiSereniteaSet>('serenitea_sets', GiSereniteaSet.fromJson),
     Items<GiSpincrystal>('spincrystals', GiSpincrystal.fromJson),
     Items<GiPlayerInfo>('user_configs', GiPlayerInfo.fromJson),
@@ -110,6 +108,7 @@ final class Items<T extends GsModel<T>> {
 
   Iterable<String> get ids => _data.keys;
   Iterable<T> get items => _data.values;
+  int get length => _data.length;
 
   Items(this.collectionId, this.parser);
 
